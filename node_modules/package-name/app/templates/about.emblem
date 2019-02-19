@@ -1,3 +1,0 @@
-h2 About
-p Find me in <code>templates/about.emblem</code>
-partial 'well'
