@@ -1,0 +1,56 @@
+<form action="/cars/all" method="GET" />
+    <input type="text" name="search" />
+    <input type="submit" value="Search" />
+</form>
+
+{{#each cars}}
+<div class="cars">
+        <h2>{{this.make}} {{this.model}} {{this.year}}</h2>
+
+        <img src="{{this.image}}" alt="{{this.make}} {{this.modle}}" />
+
+        <div class="bottom">
+            <h3>{{this.pricePerDay}} BGN / DAY</h3>
+
+            {{#if this.power}}
+            <h3>{{this.power}}</h3>
+            {{/if}}
+
+
+            {{#if ../currentUser}}
+                <form action="/cars/rent/{{this._id}}" method="POST">
+                    <select name="days">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                    </select>
+                    <input type="submit" value="Rent" />
+                </form>
+            {{/if}}
+
+            {{#if ../isAdmin}}
+                <form action="/cars/all/{{this._id}}" method="POST">
+                    <input type="submit" value="delete" /> 
+                </form>
+            {{/if}}
+        </div>
+{{else}}
+No avialable cars
+</div>
+<br /> <br />
+{{/each}}
+
+<br /> <br />
+
+<div>
+    {{#if hasPrevPage}}
+    <a href="/cars/all?page={{prevPage}}&search={{search}}">&lt;&lt;</a>
+    {{/if}}
+    {{#if hasNextPage}}
+    <a href="/cars/all?page={{nextPage}}&search={{search}}">&gt;&gt;</a>
+    {{/if}}
+</div>

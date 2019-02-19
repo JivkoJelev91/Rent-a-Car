@@ -1,0 +1,19 @@
+<div>
+    <div>
+        <div>Car</div>
+        <div>Days</div>
+        <div>Total Price</div>
+    </div>
+
+    {{#each renting}}
+    <div>
+        <div>{{this.car.make}}</div>
+        <div>{{this.car.model}}</div>
+        <div>{{this.car.year}}</div>
+    </div>
+    <div>
+        <div>{{this.rentedOn}}</div> 
+        <div>{{this.totalPrice}}</div> 
+    </div>
+    {{/each}}
+</div>

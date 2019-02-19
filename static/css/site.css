@@ -1,0 +1,37 @@
+* {
+    padding: 0;
+    margin: 0
+}
+
+header {
+    margin-bottom: 2em;
+}
+
+.container {
+    padding-left: 25%
+}
+
+.menu {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.menu li {
+    display: inline-block
+}
+
+.menu li:after {
+    content: "\00a0";
+}
+
+.error {
+    color: red;
+}
+
+.cars > img{
+    width: 50%;
+}
+
+h2, .bottom{
+    margin:2%;
+}
